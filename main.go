@@ -73,11 +73,11 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						rtnMsg = "leito 有人叫你"
 					case "表演智障弟弟":
 						rtnMsg = "不用表演，現在已經是"
-					case "抽"
+					case "抽":
 						rtnMsg = "抽"
-					case "早", "早安"
+					case "早", "早安":
 						rtnMsg = "早安"
-					case "課一單", "課十單"
+					case "課一單", "課十單":
 						rtnMsg = "來 拿著神奇小卡 找龍哥幫你"
 				}
 				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(rtnMsg)).Do(); err != nil {
