@@ -52,8 +52,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			case *linebot.TextMessage:
 				var rtnMsg string = ""
 				
-				if message.Text[:4] == "echo" {
-					rtnMsg = "echo" + ToUpper(message.Text[5:len(message.Text)])
+				if message.Text[:7] == "echo" {
+					rtnMsg = ToUpper(message.Text[4:len(message.Text)])
 				} else {
 					switch msgContent := ToUpper(message.Text); msgContent {
 						case "生日快樂":
@@ -82,12 +82,36 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 							rtnMsg = "抽"
 						case "早", "早安":
 							rtnMsg = "早安"
+						case "安"
+							rtnMsg = "幾點了還在接龍"
 						case "課一單", "課十單":
 							rtnMsg = "來 拿著神奇小卡 找龍哥幫你"
 						case "森77":
 							rtnMsg = "https://www.youtube.com/watch?v=TtQ9hwYoyWQ"
-						case "槓", "靠北", "幹":
+						case "槓", "靠北", "幹", "靠":
 							rtnMsg = "造口業會抽不到限定唷"
+						case "棄坑", "放棄":
+							rtnMsg = "來玩暗陰陽?"
+						case "積人品":
+							rtnMsg = "抽雷利、女帝?"
+						case "南寮王":
+							rtnMsg = "廢物替代役"
+						case "戰國":
+							rtnMsg = "琳抽到了"
+						case "卡文":
+							rtnMsg = "去跟姨借老公?"
+						case "限羅":
+							rtnMsg = "妞還沒抽到"
+						case "新紅":
+							rtnMsg = "獵人的情敵，但獵人已經贏了"
+						case "女朋友":
+							rtnMsg = "你沒有"
+						case "9487":
+							rtnMsg = "94狂"
+						case "我都沒有啦"
+							rtnMsg = "信用卡交出來就有了"
+						case "下禮拜就有了", "這禮拜就有了", "禮拜六就有了", "週六就有了"
+							rtnMsg = "醒醒吧, 你抽不到的"
 					}
 				}				
 				
