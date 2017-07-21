@@ -50,7 +50,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
 				var rtnMsg string = ""
-				switch msgContent := strings.ToUpper(message.Text); msgContent {
+				switch msgContent := message.Text; msgContent {
 					case "生日快樂":
 						rtnMsg = `各位海賊們,
 
