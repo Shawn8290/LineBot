@@ -18,6 +18,7 @@ import (
 	"net/http"
 	"os"
 	"strings"
+	"strconv"
 
 	"github.com/line/line-bot-sdk-go/linebot"
 )
@@ -55,7 +56,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				if message.Text[:4] == "echo" {
 					rtnMsg = strings.ToUpper(message.Text[5:len(message.Text)])
 				} else if message.Text[:3] == "len" {
-					rtnMsg = len(message.Text)
+					rtnMsg = strconv.Itoa(len(message.Text))
 				} else {
 					var msgContent string = message.Text
 					if (len(message.Text) > 1) {
