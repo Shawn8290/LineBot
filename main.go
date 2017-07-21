@@ -53,7 +53,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			case *linebot.TextMessage:
 				var rtnMsg string = ""
 				
-				if message.Text[0] == "@" {				 
+				if message.Text[:1] == "@" {				 
 					if message.Text[:5] == "@echo" {
 						rtnMsg = strings.ToUpper(message.Text[6:len(message.Text)])
 					} else if message.Text[:4] == "@len" {
