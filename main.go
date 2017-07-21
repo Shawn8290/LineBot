@@ -50,7 +50,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
 				var rtnMsg string = ""
-				switch msgContent := ToUpper(message.Text); msgContent {
+				switch msgContent := strings.ToUpper(message.Text); msgContent {
 					case "生日快樂":
 						rtnMsg = `各位海賊們,
 
@@ -67,7 +67,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						rtnMsg = "04-24652222"
 					case "龍哥":
 						rtnMsg = "就是任性"
-					case "LEITO":
+					case "LEITO", "L":
 						rtnMsg = "又!?"
 					case "智障弟弟":
 						rtnMsg = "leito 有人叫你"
