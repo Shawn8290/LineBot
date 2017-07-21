@@ -50,7 +50,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
 				var rtnMsg string = ""
-				switch msgContent := message.Text; msgContent {
+				switch msgContent := ToUpper(message.Text); msgContent {
 					case "生日快樂":
 						rtnMsg = `各位海賊們,
 
@@ -67,7 +67,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						rtnMsg = "04-24652222"
 					case "龍哥":
 						rtnMsg = "就是任性"
-					case "leito":
+					case "LEITO":
 						rtnMsg = "又!?"
 					case "智障弟弟":
 						rtnMsg = "leito 有人叫你"
@@ -81,6 +81,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						rtnMsg = "來 拿著神奇小卡 找龍哥幫你"
 					case "森77":
 						rtnMsg = "https://www.youtube.com/watch?v=TtQ9hwYoyWQ"
+					case "槓", "靠北", "幹":
+						rtnMsg = "造口業會抽不到限定唷"
 				}
 				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(rtnMsg)).Do(); err != nil {
 					log.Print(err)
