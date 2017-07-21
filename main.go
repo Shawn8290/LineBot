@@ -59,9 +59,9 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					rtnMsg = strconv.Itoa(len(message.Text[4:len(message.Text)))
 				} else {
 					var msgContent string = message.Text
-					if (len(message.Text) > 1) {
-						msgContent = strings.ToUpper(message.Text)
-					}						
+					// if (len(message.Text) > 1) {
+						// msgContent = strings.ToUpper(message.Text)
+					// }						
 					switch msgContent {
 						case "生日快樂":
 							rtnMsg = `各位海賊們,
@@ -79,7 +79,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 							rtnMsg = "04-24652222"
 						case "龍哥":
 							rtnMsg = "就是任性"
-						case "LEITO", "L", "l":
+						case "LEITO", "L", "l", "leito", "Leito":
 							rtnMsg = "又!?"
 						case "智障弟弟":
 							rtnMsg = "leito 有人叫你"
