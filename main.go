@@ -17,7 +17,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"strings"
 
 	"github.com/line/line-bot-sdk-go/linebot"
 )
@@ -53,9 +52,9 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				var rtnMsg string = ""
 				
 				if message.Text[:7] == "echo" {
-					rtnMsg = ToUpper(message.Text[4:len(message.Text)])
+					rtnMsg = strings.ToUpper(message.Text[4:len(message.Text)])
 				} else {
-					switch msgContent := ToUpper(message.Text); msgContent {
+					switch msgContent := strings.ToUpper(message.Text); msgContent {
 						case "生日快樂":
 							rtnMsg = `各位海賊們,
 
