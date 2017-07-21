@@ -82,7 +82,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 							rtnMsg = "抽"
 						case "早", "早安":
 							rtnMsg = "早安"
-						case "安"
+						case "安":
 							rtnMsg = "幾點了還在接龍"
 						case "課一單", "課十單":
 							rtnMsg = "來 拿著神奇小卡 找龍哥幫你"
@@ -108,9 +108,9 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 							rtnMsg = "你沒有"
 						case "9487":
 							rtnMsg = "94狂"
-						case "我都沒有啦"
+						case "我都沒有啦":
 							rtnMsg = "信用卡交出來就有了"
-						case "下禮拜就有了", "這禮拜就有了", "禮拜六就有了", "週六就有了"
+						case "下禮拜就有了", "這禮拜就有了", "禮拜六就有了", "週六就有了":
 							rtnMsg = "醒醒吧, 你抽不到的"
 					}
 				}				
