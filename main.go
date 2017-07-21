@@ -69,6 +69,10 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						rtnMsg = "就是任性"
 					case "leito":
 						rtnMsg = "又!?"
+					case "智障弟弟":
+						rtnMsg = "leito 有人叫你"
+					case "表演智障弟弟":
+						rtnMsg = "不用表演，現在已經是"
 				}
 				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(rtnMsg)).Do(); err != nil {
 					log.Print(err)
