@@ -51,9 +51,13 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
 				var rtnMsg string = ""
-				switch msgContent := ToUpper(message.Text); msgContent {
-					case "生日快樂":
-						rtnMsg = `各位海賊們,
+				
+				if message.Text[:4] == "echo" {
+					rtnMsg = "echo" + ToUpper(message.Text[5:len(message.Text)])
+				} else {
+					switch msgContent := ToUpper(message.Text); msgContent {
+						case "生日快樂":
+							rtnMsg = `各位海賊們,
 
 本週六版聚強勢登場！
 
@@ -62,29 +66,31 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 挑戰任務：屋馬-國安店 甲奔
 在「屋馬-國安店 甲奔」中，回合內給予店員造成的「麻煩值」之高分排名競賽！ 
 競賽限制：限制祝壽 祝賀 抽卡 推坑 拜年 求明牌 問米 關落陰 起乩`
-					case "屋馬地址":
-						rtnMsg = "台中市西屯區台中市西屯區國安一路168號B1-2"
-					case "屋馬電話":
-						rtnMsg = "04-24652222"
-					case "龍哥":
-						rtnMsg = "就是任性"
-					case "LEITO", "L":
-						rtnMsg = "又!?"
-					case "智障弟弟":
-						rtnMsg = "leito 有人叫你"
-					case "表演智障弟弟":
-						rtnMsg = "不用表演，現在已經是"
-					case "抽":
-						rtnMsg = "抽"
-					case "早", "早安":
-						rtnMsg = "早安"
-					case "課一單", "課十單":
-						rtnMsg = "來 拿著神奇小卡 找龍哥幫你"
-					case "森77":
-						rtnMsg = "https://www.youtube.com/watch?v=TtQ9hwYoyWQ"
-					case "槓", "靠北", "幹":
-						rtnMsg = "造口業會抽不到限定唷"
-				}
+						case "屋馬地址":
+							rtnMsg = "台中市西屯區台中市西屯區國安一路168號B1-2"
+						case "屋馬電話":
+							rtnMsg = "04-24652222"
+						case "龍哥":
+							rtnMsg = "就是任性"
+						case "LEITO", "L":
+							rtnMsg = "又!?"
+						case "智障弟弟":
+							rtnMsg = "leito 有人叫你"
+						case "表演智障弟弟":
+							rtnMsg = "不用表演，現在已經是"
+						case "抽":
+							rtnMsg = "抽"
+						case "早", "早安":
+							rtnMsg = "早安"
+						case "課一單", "課十單":
+							rtnMsg = "來 拿著神奇小卡 找龍哥幫你"
+						case "森77":
+							rtnMsg = "https://www.youtube.com/watch?v=TtQ9hwYoyWQ"
+						case "槓", "靠北", "幹":
+							rtnMsg = "造口業會抽不到限定唷"
+					}
+				}				
+				
 				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(rtnMsg)).Do(); err != nil {
 					log.Print(err)
 				}
