@@ -53,10 +53,12 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			case *linebot.TextMessage:
 				var rtnMsg string = ""
 				
-				if message.Text[:4] == "echo" {
-					rtnMsg = strings.ToUpper(message.Text[5:len(message.Text)])
-				} else if message.Text[:3] == "len" {
-					rtnMsg = strconv.Itoa(len(message.Text[4:len(message.Text)))
+				if message.Text[0] == "@" {				 
+					if message.Text[:5] == "@echo" {
+						rtnMsg = strings.ToUpper(message.Text[6:len(message.Text)])
+					} else if message.Text[:4] == "@len" {
+						rtnMsg = strconv.Itoa(len(message.Text) - 5)
+					} 
 				} else {
 					var msgContent string = message.Text
 					// if (len(message.Text) > 1) {
