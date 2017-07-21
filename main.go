@@ -52,8 +52,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			case *linebot.TextMessage:
 				var rtnMsg string = ""
 				
-				if message.Text[:7] == "echo" {
-					rtnMsg = strings.ToUpper(message.Text[4:len(message.Text)])
+				if message.Text[:4] == "echo" {
+					rtnMsg = strings.ToUpper(message.Text[5:len(message.Text)])
 				} else {
 					switch msgContent := strings.ToUpper(message.Text); msgContent {
 						case "生日快樂":
