@@ -49,18 +49,25 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 		if event.Type == linebot.EventTypeMessage {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
-				if message.Text == "生日快樂" {
-					if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(`各位海賊們,
+				var rtnMsg string = ""
+				switch msgContent := message.Text; msgContent {
+					case "生日快樂":
+						rtnMsg = `各位海賊們,
 
 本週六版聚強勢登場！
 
 ►【期間限定】新甲奔活動－男子漢的一吃決勝負！
-活動期間：07/22(13:30)~07/22(13:31)
+活動期間：07/22(13:30)~07/22(15:30)
 挑戰任務：屋馬-國安店 甲奔
 在「屋馬-國安店 甲奔」中，回合內給予店員造成的「麻煩值」之高分排名競賽！ 
-競賽限制：限制祝壽 祝賀 抽卡 推坑 拜年 求明牌 問米 關落陰 起乩`)).Do(); err != nil {
-						log.Print(err)
-					}
+競賽限制：限制祝壽 祝賀 抽卡 推坑 拜年 求明牌 問米 關落陰 起乩`
+					case "屋馬地址":
+						rtnMsg = "台中市西屯區台中市西屯區國安一路168號B1-2"
+					case "屋馬電話":
+						rtnMsg = "04-24652222"
+				}
+				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(rtnMsg)).Do(); err != nil {
+					log.Print(err)
 				}
 				
 			}
