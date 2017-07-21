@@ -56,7 +56,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				if message.Text[:4] == "echo" {
 					rtnMsg = strings.ToUpper(message.Text[5:len(message.Text)])
 				} else if message.Text[:3] == "len" {
-					rtnMsg = strconv.Itoa(len(message.Text))
+					rtnMsg = strconv.Itoa(len(message.Text[4:len(message.Text)))
 				} else {
 					var msgContent string = message.Text
 					if (len(message.Text) > 1) {
