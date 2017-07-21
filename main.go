@@ -65,6 +65,10 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						rtnMsg = "台中市西屯區台中市西屯區國安一路168號B1-2"
 					case "屋馬電話":
 						rtnMsg = "04-24652222"
+					case "龍哥":
+						rtnMsg = "就是任性"
+					case "leito":
+						rtnMsg = "又!?"
 				}
 				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(rtnMsg)).Do(); err != nil {
 					log.Print(err)
