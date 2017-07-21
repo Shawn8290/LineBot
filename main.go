@@ -57,11 +57,11 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				} else if message.Text[:3] == "len" {
 					rtnMsg = len(message.Text)
 				} else {
-					var msgContent string := message.Text
+					var msgContent string = message.Text
 					if (len(message.Text) > 1) {
 						msgContent = strings.ToUpper(message.Text)
 					}						
-					switch msgContent{
+					switch msgContent {
 						case "生日快樂":
 							rtnMsg = `各位海賊們,
 
