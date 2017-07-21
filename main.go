@@ -54,8 +54,14 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 				
 				if message.Text[:4] == "echo" {
 					rtnMsg = strings.ToUpper(message.Text[5:len(message.Text)])
+				} else if message.Text[:3] == "len" {
+					rtnMsg = len(message.Text)
 				} else {
-					switch msgContent := strings.ToUpper(message.Text); msgContent {
+					var msgContent string := message.Text
+					if (len(message.Text) > 1) {
+						msgContent = strings.ToUpper(message.Text)
+					}						
+					switch msgContent{
 						case "生日快樂":
 							rtnMsg = `各位海賊們,
 
@@ -72,7 +78,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 							rtnMsg = "04-24652222"
 						case "龍哥":
 							rtnMsg = "就是任性"
-						case "LEITO", "L":
+						case "LEITO", "L", "l":
 							rtnMsg = "又!?"
 						case "智障弟弟":
 							rtnMsg = "leito 有人叫你"
@@ -105,7 +111,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						case "新紅":
 							rtnMsg = "獵人的情敵，但獵人已經贏了"
 						case "女朋友":
-							rtnMsg = "你沒有"
+							rtnMsg = "你跟南寮王都沒有"
 						case "9487":
 							rtnMsg = "94狂"
 						case "我都沒有啦":
