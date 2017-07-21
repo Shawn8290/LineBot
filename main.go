@@ -79,6 +79,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						rtnMsg = "早安"
 					case "課一單", "課十單":
 						rtnMsg = "來 拿著神奇小卡 找龍哥幫你"
+					case "森77":
+						rtnMsg = "https://www.youtube.com/watch?v=TtQ9hwYoyWQ"
 				}
 				if _, err = bot.ReplyMessage(event.ReplyToken, linebot.NewTextMessage(rtnMsg)).Do(); err != nil {
 					log.Print(err)
