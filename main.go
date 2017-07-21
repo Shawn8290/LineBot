@@ -60,10 +60,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						rtnMsg = strconv.Itoa(len(message.Text) - 5)
 					} 
 				} else {
-					var msgContent string = message.Text
-					// if (len(message.Text) > 1) {
-						// msgContent = strings.ToUpper(message.Text)
-					// }						
+					var msgContent string = strings.ToUpper(message.Text)						
 					switch msgContent {
 						case "生日快樂":
 							rtnMsg = `各位海賊們,
