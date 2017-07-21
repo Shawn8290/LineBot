@@ -78,7 +78,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 							rtnMsg = "04-24652222"
 						case "龍哥":
 							rtnMsg = "就是任性"
-						case "LEITO", "L", "l", "leito", "Leito":
+						case "LEITO", "L":
 							rtnMsg = "又!?"
 						case "智障弟弟":
 							rtnMsg = "leito 有人叫你"
