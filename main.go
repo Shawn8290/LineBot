@@ -63,19 +63,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					var msgContent string = strings.ToUpper(message.Text)						
 					switch msgContent {
 						case "生日快樂":
-							rtnMsg = `各位海賊們,
-
-本週六版聚強勢登場！
-
-►【期間限定】新甲奔活動－男子漢的一吃決勝負！
-活動期間：07/22(13:30)~07/22(15:30)
-挑戰任務：屋馬-國安店 甲奔
-在「屋馬-國安店 甲奔」中，回合內給予店員造成的「麻煩值」之高分排名競賽！ 
-競賽限制：限制祝壽 祝賀 抽卡 推坑 拜年 求明牌 問米 關落陰 起乩`
-						case "屋馬地址":
-							rtnMsg = "台中市西屯區台中市西屯區國安一路168號B1-2"
-						case "屋馬電話":
-							rtnMsg = "04-24652222"
+							rtnMsg = "還在生什麼日快什麼樂，要叫店員來嗎"
 						case "龍哥":
 							rtnMsg = "就是任性"
 						case "LEITO", "L":
@@ -86,7 +74,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 							rtnMsg = "不用表演，現在已經是"
 						case "抽":
 							rtnMsg = "抽"
-						case "早", "早安":
+						case "早安":
 							rtnMsg = "早安"
 						case "安":
 							rtnMsg = "幾點了還在接龍"
@@ -96,7 +84,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 							rtnMsg = "https://www.youtube.com/watch?v=TtQ9hwYoyWQ"
 						case "槓", "靠北", "幹", "靠":
 							rtnMsg = "造口業會抽不到限定唷"
-						case "棄坑", "放棄":
+						case "棄坑":
 							rtnMsg = "來玩暗陰陽?"
 						case "積人品":
 							rtnMsg = "抽雷利、女帝?"
@@ -122,6 +110,22 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 							rtnMsg = "https://shawn8290.github.io/OPTC/index.html"
 						case "查副本":
 							rtnMsg = "http://jsfiddle.net/7ckc75ox/show/"
+						case "永遠都抽不到":
+							rtnMsg = "抽不到就是儲不夠"
+						case "How 歐 are you":
+							rtnMsg = "I am 非, 3Q"
+						case "夏威夷":
+							rtnMsg = "南寮自己去了"
+						case "強力慶典":
+							rtnMsg = "先課個全餐吧"
+						case "翻了", "翻船", "手滑了":
+							rtnMsg = "大俠請重新來過"
+						case "不抽了":
+							rtnMsg = "現在不抽限定就被別人抽走了"
+						case "跳過", "放棄":
+							rtnMsg = "現在放棄比賽就結束了"
+						case "博識隊長":
+							rtnMsg = "陳勁宇？"
 					}
 				}				
 				
