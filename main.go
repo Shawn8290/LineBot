@@ -128,9 +128,10 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 							rtnMsg = "現在放棄比賽就結束了"
 						case "博識隊長":
 							rtnMsg = "陳勁宇？"	
-						// } else if message.Text[:4] == "@test" {
-						case "測試中文":
-							rtnMsg = "4: " + message.Text[:4] + "; 12: " + message.Text[:12]
+						default:
+							if message.Text[:12] == "岳父大人" {
+								rtnMsg = event.Source.UserID
+							}							
 					}
 				}				
 				
