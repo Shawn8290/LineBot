@@ -129,8 +129,11 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						case "博識隊長":
 							rtnMsg = "陳勁宇？"	
 						default:
-							if message.Text[:12] == "岳父大人" {
-								rtnMsg = event.Source.UserID
+							switch {
+								case message.Text[:12] == "岳父大人":
+									rtnMsg = event.Source.UserID
+								case message.Text[:9] == "查角色":
+									rtnMsg = "https://shawn8290.github.io/OPTC/index.html?" + message.Text[10:len(message.Text)]
 							}							
 					}
 				}				
