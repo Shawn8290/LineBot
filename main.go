@@ -131,7 +131,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						default:
 							switch {
 								case message.Text[:12] == "岳父大人":
-									rtnMsg = event.Source.UserID
+									rtnMsg = "抓到了嗎？ID: " + event.Source.UserID
 								case message.Text[:9] == "查角色":
 									rtnMsg = "https://shawn8290.github.io/OPTC/index.html?" + message.Text[10:len(message.Text)]
 							}							
