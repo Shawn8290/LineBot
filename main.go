@@ -58,7 +58,9 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						rtnMsg = strings.ToUpper(message.Text[6:len(message.Text)])
 					} else if message.Text[:4] == "@len" {
 						rtnMsg = strconv.Itoa(len(message.Text) - 5)
-					} 
+					} else if message.Text[:6] == "@getid" {
+						rtnMsg = event.Source.UserID
+					}
 				} else {
 					var msgContent string = strings.ToUpper(message.Text)						
 					switch msgContent {
