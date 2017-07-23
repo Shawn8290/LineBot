@@ -61,7 +61,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					} else if message.Text[:6] == "@getid" {
 						rtnMsg = event.Source.UserID
 					}
-				} else if message.Text[:12] == "岳父大人" {
+				} else if message.Text[:4] == "岳父大人" {
 					rtnMsg = event.Source.UserID
 				} else {
 					var msgContent string = strings.ToUpper(message.Text)						
