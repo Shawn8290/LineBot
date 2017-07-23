@@ -61,8 +61,6 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					} else if message.Text[:6] == "@getid" {
 						rtnMsg = event.Source.UserID
 					}
-				} else if message.Text[:4] == "岳父大人" {
-					rtnMsg = event.Source.UserID
 				} else {
 					var msgContent string = strings.ToUpper(message.Text)						
 					switch msgContent {
@@ -129,7 +127,10 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						case "跳過", "放棄":
 							rtnMsg = "現在放棄比賽就結束了"
 						case "博識隊長":
-							rtnMsg = "陳勁宇？"							
+							rtnMsg = "陳勁宇？"	
+						// } else if message.Text[:4] == "@test" {
+						case "測試中文":
+							rtnMsg = "4: " + message.Text[:4] + "; 12: " + message.Text[:12]
 					}
 				}				
 				
