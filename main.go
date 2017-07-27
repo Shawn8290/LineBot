@@ -52,8 +52,10 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
 				var rtnMsg string = ""
-				if (os.Getenv("EnableGroup") != event.Source.GroupID) && (len(event.Source.GroupID) > 0)
+				if (os.Getenv("EnableGroup") != event.Source.GroupID) && (len(event.Source.GroupID) > 0) {
 					return
+				}
+					
 				if message.Text[:1] == "@" {		
 					cmd := strings.Split(message.Text, " ")
 					switch cmd[0] {
