@@ -51,16 +51,13 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 		if event.Type == linebot.EventTypeMessage {
 			switch message := event.Message.(type) {
 			case *linebot.TextMessage:
-				var rtnMsg string = ""
-				if (os.Getenv("EnableGroup") != event.Source.GroupID) && (len(event.Source.GroupID) > 0) {
-					return
-				}
+				var rtnMsg string = ""				
 					
 				if message.Text[:1] == "@" {		
 					cmd := strings.Split(message.Text, " ")
 					switch cmd[0] {
 						case "@echo":
-							rtnMsg = strings.ToUpper(message.Text[6:len(message.Text)])
+							rtnMsg = message.Text[6:len(message.Text)]
 						case "@len":
 							rtnMsg = strconv.Itoa(len(message.Text) - 5)
 						case "@userid":
@@ -71,6 +68,9 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 							rtnMsg = event.Source.RoomID
 					}	
 				} else {
+					if (os.Getenv("EnableGroup") != event.Source.GroupID) && (len(event.Source.GroupID) > 0) {
+						return
+					}
 					var msgContent string = strings.ToUpper(message.Text)						
 					switch msgContent {
 						case "生日快樂":
