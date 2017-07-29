@@ -77,16 +77,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 							rtnMsg = "還在生什麼日快什麼樂，要叫店員來嗎"
 						case "龍哥":
 							rtnMsg = "就是任性"
-						case "LEITO", "L":
-							rtnMsg = "又!?"
-						case "智障弟弟":
-							rtnMsg = "leito 有人叫你"
-						case "表演智障弟弟":
-							rtnMsg = "不用表演，現在已經是"
 						case "抽":
 							rtnMsg = "抽"
-						case "早安":
-							rtnMsg = "早安"
 						case "安":
 							rtnMsg = "幾點了還在接龍"
 						case "課一單", "課十單":
@@ -98,15 +90,13 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 						case "棄坑":
 							rtnMsg = "來玩暗陰陽?"
 						case "積人品":
-							rtnMsg = "抽雷利、女帝?"
-						case "南寮王":
-							rtnMsg = "廢物替代役"
+							rtnMsg = "去隔壁發片子啊"
 						case "戰國":
-							rtnMsg = "琳抽到了"
+							rtnMsg = "琳 於 2017/05/29 已抽中"
 						case "卡文":
-							rtnMsg = "去跟姨借老公?"
+							rtnMsg = "姨 於 2017/05/27 已抽中"
 						case "限羅":
-							rtnMsg = "妞還沒抽到"
+							rtnMsg = "妞 於 2017/07/29 已抽中"
 						case "新紅":
 							rtnMsg = "獵人的情敵，但獵人已經贏了"
 						case "女朋友":
@@ -129,7 +119,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 							rtnMsg = "南寮自己去了"
 						case "強力慶典":
 							rtnMsg = "先課個全餐吧"
-						case "翻了", "翻船", "手滑了":
+						case "手殘", "翻了", "翻船", "手滑了":
 							rtnMsg = "大俠請重新來過"
 						case "不抽了":
 							rtnMsg = "現在不抽限定就被別人抽走了"
