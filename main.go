@@ -66,8 +66,6 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 							rtnMsg = event.Source.GroupID
 						case "@roomid":
 							rtnMsg = event.Source.RoomID
-						case "@test":
-							rtnMsg = "測試"
 					}	
 				} else {
 					if (os.Getenv("EnableGroup") != event.Source.GroupID) && (len(event.Source.GroupID) > 0) {
