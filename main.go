@@ -84,6 +84,10 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 							switch {
 								case message.Text[:9] == "查角色":
 									rtnMsg = "https://shawn8290.github.io/OPTC/index.html?" + message.Text[10:len(message.Text)]
+								case message.Text[:6] == "測試":
+									var syntax string = message.Text[10:len(message.Text)]
+									syntax = strings.TrimSpace(syntax)
+									rtnMsg = "https://shawn8290.github.io/OPTC/index.html?" + syntax
 							}							
 					}
 				}				
