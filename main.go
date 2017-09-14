@@ -77,16 +77,15 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 							rtnMsg = "https://shawn8290.github.io/OPTC/index.html"
 						case "查副本":
 							rtnMsg = "http://jsfiddle.net/7ckc75ox/show/"
-						case "909":
-							rtnMsg = `【碳佐麻里日式燒肉 - 台南府前店】
-地址：台南市安平區府前路二段630號`
 						default:
 							switch {
 								case message.Text[:9] == "查角色":
 									rtnMsg = "https://shawn8290.github.io/OPTC/index.html?" + message.Text[10:len(message.Text)]
 								case message.Text[:6] == "測試":
-									var syntax string = message.Text[10:len(message.Text)]
-									syntax = strings.TrimSpace(syntax)
+									var syntax string = message.Text[7:len(message.Text)]
+									syntax = strings.Replace(syntax, " ", "", -1)
+									syntax = strings.Replace(syntax, "　", "", -1)
+									syntax = strings.Replace(syntax, "＠", "@", -1)
 									rtnMsg = "https://shawn8290.github.io/OPTC/index.html?" + syntax
 							}							
 					}
