@@ -71,7 +71,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					if (os.Getenv("EnableGroup") != event.Source.GroupID) && (len(event.Source.GroupID) > 0) {
 						return
 					}
-					var msgContent string = strings.ToUpper(message.Text)						
+					var msgContent string = strings.ToUpper(message.Text)		
+					msgContent = strings.Trim(msgContent, " ")
 					switch msgContent {
 						case "查角色":
 							rtnMsg = "https://shawn8290.github.io/OPTC/index.html"
