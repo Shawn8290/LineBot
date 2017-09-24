@@ -76,7 +76,7 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 					msgContent = strings.Trim(msgContent, "　")
 					switch msgContent {
 						case "查角色":
-							rtnMsg = "https://shawn8290.github.io/OPTC/index.html"
+							rtnMsg = "https://shawn8290.github.io/OPTC/"
 						case "查副本":
 							rtnMsg = "http://jsfiddle.net/7ckc75ox/show/"
 						default:
