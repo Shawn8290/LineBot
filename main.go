@@ -66,6 +66,8 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 							rtnMsg = event.Source.GroupID
 						case "@roomid":
 							rtnMsg = event.Source.RoomID
+						case "@test":
+							rtnMsg = "Test!!"
 					}	
 				} else {
 					/*
