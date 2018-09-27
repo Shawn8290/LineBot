@@ -68,9 +68,11 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 							rtnMsg = event.Source.RoomID
 					}	
 				} else {
+					/*
 					if (os.Getenv("EnableGroup") != event.Source.GroupID) && (len(event.Source.GroupID) > 0) {
 						return
 					}
+					*/
 					var msgContent string = strings.ToUpper(message.Text)		
 					msgContent = strings.Trim(msgContent, " ")
 					msgContent = strings.Trim(msgContent, "　")
