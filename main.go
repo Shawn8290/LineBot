@@ -91,6 +91,10 @@ func callbackHandler(w http.ResponseWriter, r *http.Request) {
 									syntax = strings.Replace(syntax, "　", "@@", -1)
 									syntax = strings.Replace(syntax, "＠", "@", -1)
 									rtnMsg = "https://shawn8290.github.io/OPTC/index.html?" + syntax
+								case message.Text[:6] == "技能":
+									var syntax string = "?sendctl=SKILL_DESC"
+									syntax += "&CardNo=" + message.Text[7:len(message.Text)]
+									rtnMsg = "https://shawn8290.github.io/OPTC/getdata.html" + syntax
 							}							
 					}
 				}				
